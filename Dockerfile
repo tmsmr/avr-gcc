@@ -1,10 +1,7 @@
-FROM debian:stretch
+FROM alpine:3.7
 
 MAINTAINER Thomas Maier <contact@thomas-maier.net>
 
-ENV DEBIAN_FRONTEND="noninteractive"
-
-RUN apt-get update \
-    && apt-get install -y avrdude gcc-avr avr-libc \ 
-    && apt-get install -y build-essential git \
-    && apt-get clean
+RUN apk update \
+    && apk add git --no-cache \
+    && apk add make avr-libc --no-cache
